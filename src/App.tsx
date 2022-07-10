@@ -6,7 +6,7 @@ export const App = () => {
 
   return (
     <div className={flavor}>
-      <div className='bg-ctp-base'>
+      <div className='bg-ctp-base h-screen'>
         <AddButton />
       </div>
     </div>
