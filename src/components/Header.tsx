@@ -10,7 +10,7 @@ export const Header = () => {
       </div>
 
       <div className='w-[calc(100%/3)]'>
-        <span className='font-bold text-xl text-ctp-text'>Your todos</span>
+        <span className='font-bold text-xl text-ctp-text'>Your tasks</span>
       </div>
       <div className='w-[calc(100%/3)]'>
         <span className='font-bold text-xl'></span>
