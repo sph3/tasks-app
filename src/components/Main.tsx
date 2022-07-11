@@ -1,4 +1,3 @@
-import { Footer } from './Footer';
 import { Greeting } from './Greeting';
 import { TaskList } from './TaskList';
 

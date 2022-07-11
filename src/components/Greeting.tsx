@@ -1,7 +1,7 @@
 export const Greeting = () => {
   return (
     <div>
-      <p className='font-bold text-4xl text-ctp-text'>Hello, World!</p>
+      <h1 className='font-bold text-4xl text-ctp-text'>Hello, World!</h1>
     </div>
   );
 };
