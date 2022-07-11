@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AddButton } from './components/AddButton';
-import { Greeting } from './components/Greeting';
 import { Header } from './components/Header';
+import { Main } from './components/Main';
 
 export const App = () => {
   let [flavor, setFlavor] = useState('ctp-latte');
@@ -10,7 +10,7 @@ export const App = () => {
     <div className={flavor}>
       <div className='bg-ctp-base h-screen'>
         <Header />
-        <Greeting />
+        <Main />
         <AddButton />
       </div>
     </div>
