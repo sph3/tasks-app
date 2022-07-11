@@ -4,7 +4,7 @@ import { Header } from './components/Header';
 import { Main } from './components/Main';
 
 export const App = () => {
-  let [flavor, setFlavor] = useState('ctp-latte');
+  let [flavor, setFlavor] = useState('ctp-mocha');
 
   return (
     <div className={flavor}>
