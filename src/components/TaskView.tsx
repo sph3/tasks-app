@@ -9,16 +9,13 @@ export const TaskView = () => {
       </div>
       <div>
         <h1 className='font-bold text-2xl text-ctp-text'>Details:</h1>
-        <div className='mt-1 bg-ctp-surface0 rounded-2xl p-3 w-full flex items-center justify-center h-auto min-h-[64px] max-h-80 overflow-y-scroll'>
-          <p className='text-base'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-            blanditiis saepe facilis velit corrupti eligendi! Recusandae rerum
-            quaerat sequi modi et veritatis voluptates similique numquam,
-            voluptatibus velit soluta accusantium laudantium. Quisquam nisi
-            molestiae aperiam quibusdam officia.
+        <div className='mt-1 bg-ctp-surface0 rounded-2xl p-3 w-full flex items-center justify-center h-auto min-h-[64px] max-h-80 overflow-y-scroll shadow-md'>
+          <p className='text-base m-auto'>
+            Lorem ipsum dolor, sit amet tinctio odio ullam voluptatem laborum quisquam velit adipisci temporibus assumenda nesciunt, vitae ad iste ratione vel optio dolor nisi placeat eveniet. Nulla, dolor.
           </p>
         </div>
       </div>
+      
     </div>
   );
 };
