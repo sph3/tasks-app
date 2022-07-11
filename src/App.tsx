@@ -6,8 +6,6 @@ import { Main } from './pages/Main';
 import { TaskView } from './pages/TaskView';
 import { Router } from './Router';
 
-export type PageTitle = 'Your Tasks' | 'Task View';
-
 export const App = () => {
   let [flavor, setFlavor] = useState('ctp-latte');
 

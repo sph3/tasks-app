@@ -1,8 +1,7 @@
 import { List } from 'phosphor-react';
-import { PageTitle } from '../App';
 
 type HeaderProps = {
-  pageTitle: PageTitle;
+  pageTitle: 'Your Tasks' | 'Task View';
 };
 
 export const Header = ({ pageTitle }: HeaderProps) => {
