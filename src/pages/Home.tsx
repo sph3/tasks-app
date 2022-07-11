@@ -25,26 +25,23 @@ export const Home = () => {
           Sign in with Google
         </button>
       </div>
-      <div className='py-10 pl-4 flex'>
-        <div className='h-48 w-28 bg-ctp-surface1 rounded-2xl shrink-0'></div>
-        <div className='flex flex-col mt-4 -translate-x-20 gap-3'>
-          <div className='bg-ctp-surface0 rounded-2xl h-10 w-32'></div>
-          <div className='bg-ctp-surface0 rounded-2xl h-10 w-32'></div>
-          <div className='bg-ctp-surface0 rounded-2xl h-10 w-32'></div>
-          <div className='rounded-full bg-ctp-blue h-6 w-6 translate-x-3 flex justify-center items-center text-center text-white text-xs'>
-            <Plus />
+      <div className='py-10 pl-4 flex gap-28'>
+        <div className='grid h-48 w-28 bg-ctp-surface1 rounded-2xl shrink-0'>
+          <div className='flex flex-col ml-10 mt-4 gap-3'>
+            <div className='bg-ctp-surface0 rounded-2xl h-10 w-32'></div>
+            <div className='bg-ctp-surface0 rounded-2xl h-10 w-32'></div>
+            <div className='bg-ctp-surface0 rounded-2xl h-10 w-32'></div>
+            <div className='rounded-full bg-ctp-blue h-6 w-6 translate-x-1 flex justify-center items-center text-center text-white text-xs'>
+              <Plus />
+            </div>
           </div>
         </div>
         <div className='mt-3 flex flex-col gap-2 -translate-x-10'>
           <span className='text-ctp-subtext0'>
             Easily view and edit your tasks!
           </span>
-          <span className='text-ctp-subtext0'>
-            Add reminders, images
-          </span>
-          <span className='text-ctp-subtext0'>
-            and mark tasks as done!
-          </span>
+          <span className='text-ctp-subtext0'>Add reminders, images</span>
+          <span className='text-ctp-subtext0'>and mark tasks as done!</span>
         </div>
       </div>
     </div>
