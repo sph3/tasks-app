@@ -33,7 +33,7 @@ export const Header = ({ pageTitle }: HeaderProps) => {
             <Trash weight='bold' />
           </button>
         ) : (
-          ''
+          <span className='text-xl mr-12'></span>
         )}
       </div>
     </div>

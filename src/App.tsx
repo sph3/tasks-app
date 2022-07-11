@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Footer } from './components/Footer';
-import { Header } from './components/Header';
-import { Main } from './pages/Main';
-import { TaskView } from './pages/TaskView';
 import { Router } from './Router';
 
 export const App = () => {
