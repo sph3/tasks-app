@@ -1,8 +1,12 @@
 import { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
-import { Main } from './components/Main';
-import { TaskView } from './components/TaskView';
+import { Main } from './pages/Main';
+import { TaskView } from './pages/TaskView';
+import { Router } from './Router';
+
+export type PageTitle = 'Your Tasks' | 'Task View';
 
 export const App = () => {
   let [flavor, setFlavor] = useState('ctp-latte');
@@ -10,10 +14,9 @@ export const App = () => {
   return (
     <div className={flavor}>
       <div className='bg-ctp-base min-h-screen'>
-        <Header />
-        {/* <Main /> */}
-        <TaskView />
-        <Footer />
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
       </div>
     </div>
   );

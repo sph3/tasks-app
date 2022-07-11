@@ -1,6 +1,11 @@
 import { List } from 'phosphor-react';
+import { PageTitle } from '../App';
 
-export const Header = () => {
+type HeaderProps = {
+  pageTitle: PageTitle;
+};
+
+export const Header = ({ pageTitle }: HeaderProps) => {
   return (
     <div className='flex flex-row justify-between items-center text-center h-16 bg-ctp-mantle flex-wrap px-1'>
       <div className='w-[calc(100%/3)]'>
@@ -10,7 +15,7 @@ export const Header = () => {
       </div>
 
       <div className='w-[calc(100%/3)]'>
-        <span className='font-bold text-xl text-ctp-text'>Your tasks</span>
+        <span className='font-bold text-xl text-ctp-text'>{pageTitle}</span>
       </div>
       <div className='w-[calc(100%/3)]'>
         <span className='font-bold text-xl'></span>
