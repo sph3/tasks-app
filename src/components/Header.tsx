@@ -27,8 +27,8 @@ export const Header = ({ pageTitle }: HeaderProps) => {
       <div>
         {pageTitle === 'Task View' ? (
           <button
-            className='text-xl text-ctp-red bg-ctp-red bg-opacity-20 w-10 h-10 rounded-lg flex text-center
-            items-center justify-center outline-none hover:bg-opacity-40 duration-100 focus:ring-ctp-red focus:ring-2'
+            className='text-xl text-ctp-red bg-ctp-red bg-opacity-10 w-10 h-10 rounded-lg flex text-center
+            items-center justify-center outline-none hover:bg-opacity-30 duration-100 focus:ring-ctp-red focus:ring-2'
           >
             <Trash weight='bold' />
           </button>
