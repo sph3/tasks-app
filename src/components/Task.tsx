@@ -7,7 +7,7 @@ type TaskProps = {
 
 export const Task = ({ text, date }: TaskProps) => {
   return (
-    <Link to='/task/id' className='rounded-2xl w-full bg-ctp-surface0 shadow-lg h-16 flex justify-between items-center p-4'>
+    <Link to='/tasks/id' className='rounded-2xl w-full bg-ctp-surface0 shadow-lg h-16 flex justify-between items-center p-4'>
       <span className='text-ctp-text text-lg'>{text}</span>
       <span className='text-ctp-subtext0 text-base'>
         {date.toLocaleDateString(undefined, {
