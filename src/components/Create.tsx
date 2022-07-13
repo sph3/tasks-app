@@ -1,5 +1,4 @@
 import { Check } from 'phosphor-react';
-import { ChangeEvent } from 'react';
 import { Header } from './Header';
 
 export const Create = () => {
@@ -16,6 +15,7 @@ export const Create = () => {
               Title:
             </label>
             <input
+              type='text'
               id='taskTitle'
               className='bg-ctp-surface0 text-ctp-subtext1 focus:text-ctp-text placeholder-ctp-overlay1
                 rounded-2xl w-full h-14 mt-1 p-3 text-xl'
@@ -46,16 +46,16 @@ export const Create = () => {
             >
               Tag color:
             </label>
-            <div className='flex justify-around mt-2'>
-              <button className='text-white flex items-center justify-center h-8 w-8 bg-ctp-sky rounded-xl outline-none'></button>
-              <button className='text-white flex items-center justify-center h-8 w-8 bg-ctp-blue rounded-xl outline-none'></button>
-              <button className='border-2 border-ctp-crust text-white flex items-center justify-center h-8 w-8 bg-ctp-green rounded-xl outline-none'>
+            <div id='taskColor' className='flex justify-around mt-4'>
+              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-sky rounded-xl outline-none'></button>
+              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-blue rounded-xl outline-none'></button>
+              <button className='border-2 border-ctp-crust text-white flex items-center justify-center h-8 w-10 bg-ctp-green rounded-xl outline-none'>
                 <Check weight='bold' />
               </button>
-              <button className='text-white flex items-center justify-center h-8 w-8 bg-ctp-yellow rounded-xl outline-none'></button>
-              <button className='text-white flex items-center justify-center h-8 w-8 bg-ctp-peach rounded-xl outline-none'></button>
-              <button className='text-white flex items-center justify-center h-8 w-8 bg-ctp-mauve rounded-xl outline-none'></button>
-              <button className='text-white flex items-center justify-center h-8 w-8 bg-ctp-red rounded-xl outline-none'></button>
+              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-yellow rounded-xl outline-none'></button>
+              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-peach rounded-xl outline-none'></button>
+              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-mauve rounded-xl outline-none'></button>
+              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-red rounded-xl outline-none'></button>
             </div>
           </div>
         </div>
