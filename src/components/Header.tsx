@@ -1,7 +1,12 @@
 import { ArrowUUpLeft, List, Trash } from 'phosphor-react';
 
 type HeaderProps = {
-  pageTitle: 'Your Tasks' | 'Task View' | 'New Task' | 'Choose Your Theme';
+  pageTitle:
+    | 'Your Tasks'
+    | 'Task View'
+    | 'New Task'
+    | 'Choose Your Theme'
+    | 'Not Found';
 };
 
 export const Header = ({ pageTitle }: HeaderProps) => {
