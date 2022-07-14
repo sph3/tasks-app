@@ -11,15 +11,14 @@ export type Flavour =
 export const App = () => {
   const [flavour, setFlavour] = useState<Flavour>('ctp-latte');
 
-  const getFlavour = (): Flavour => {
-    return flavour;
-  };
-
   return (
     <div className={flavour}>
       <div className='bg-ctp-base min-h-screen'>
         <BrowserRouter>
-          <Router getFlavour={getFlavour} setFlavour={setFlavour} />
+          <Router
+            currentFlavour={flavour}
+            setFlavour={setFlavour}
+          />
         </BrowserRouter>
       </div>
     </div>

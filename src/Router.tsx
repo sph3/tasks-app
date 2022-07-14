@@ -8,11 +8,11 @@ import { TaskView } from './pages/TaskView';
 import { NotFound } from './pages/NotFound';
 
 type FlavourFunctions = {
-  getFlavour: () => Flavour;
+  currentFlavour: Flavour;
   setFlavour: (flavour: Flavour) => void;
 };
 
-export const Router = ({ getFlavour, setFlavour }: FlavourFunctions) => {
+export const Router = ({ currentFlavour, setFlavour }: FlavourFunctions) => {
   return (
     <Routes>
       <Route path='*' element={<NotFound />} />
@@ -23,7 +23,10 @@ export const Router = ({ getFlavour, setFlavour }: FlavourFunctions) => {
       <Route
         path='/settings/themes'
         element={
-          <ThemeSwitcher getFlavour={getFlavour} setFlavour={setFlavour} />
+          <ThemeSwitcher
+            currentFlavour={currentFlavour}
+            setFlavour={setFlavour}
+          />
         }
       />
     </Routes>

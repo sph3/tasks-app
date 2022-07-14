@@ -3,15 +3,14 @@ import { FlavourDemo } from '../components/FlavourDemo';
 import { Flavour } from '../App';
 
 type FlavourSwitcherProps = {
-  getFlavour: () => Flavour;
+  currentFlavour: Flavour;
   setFlavour: (flavour: Flavour) => void;
 };
 
 export const ThemeSwitcher = ({
-  getFlavour,
+  currentFlavour,
   setFlavour,
 }: FlavourSwitcherProps) => {
-  const currentFlavour = getFlavour();
 
   return (
     <>
