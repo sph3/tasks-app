@@ -7,7 +7,10 @@ type FlavourSwitcherProps = {
   setFlavour: (flavour: Flavour) => void;
 };
 
-export const Switch = ({ getFlavour, setFlavour }: FlavourSwitcherProps) => {
+export const ThemeSwitcher = ({
+  getFlavour,
+  setFlavour,
+}: FlavourSwitcherProps) => {
   const currentFlavour = getFlavour();
 
   const setFlavourHandler = (newFlavour: Flavour) => {
@@ -21,18 +24,22 @@ export const Switch = ({ getFlavour, setFlavour }: FlavourSwitcherProps) => {
         <h1 className='text-ctp-text text-2xl font-bold'>Available themes:</h1>
         <div className='flex justify-evenly gap-y-4 mt-4 items-center flex-wrap'>
           <FlavourDemo
+            setFlavour={setFlavour}
             selected={currentFlavour === 'ctp-latte'}
             flavour='ctp-latte'
           />
           <FlavourDemo
+            setFlavour={setFlavour}
             selected={currentFlavour === 'ctp-mocha'}
             flavour='ctp-mocha'
           />
           <FlavourDemo
+            setFlavour={setFlavour}
             selected={currentFlavour === 'ctp-macchiato'}
             flavour='ctp-macchiato'
           />
           <FlavourDemo
+            setFlavour={setFlavour}
             selected={currentFlavour === 'ctp-frappe'}
             flavour='ctp-frappe'
           />
