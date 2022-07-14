@@ -2,17 +2,17 @@ import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './Router';
 
-export type Flavour = 'ctp-latte' | 'ctp-mocha' | 'ctp-frappe' | 'ctp-macchiato';
+export type Flavour =
+  | 'ctp-latte'
+  | 'ctp-mocha'
+  | 'ctp-frappe'
+  | 'ctp-macchiato';
 
 export const App = () => {
   const [flavour, setFlavour] = useState<Flavour>('ctp-latte');
 
   const getFlavour = (): Flavour => {
     return flavour;
-  };
-
-  const changeFlavour = (flavor: Flavour) => {
-    setFlavour(flavour);
   };
 
   return (
