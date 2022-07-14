@@ -3,7 +3,7 @@ import { Flavour } from './App';
 import { Create } from './components/Create';
 import { Home } from './pages/Home';
 import { Main } from './pages/Main';
-import { ThemeSwitcher } from './pages/ThemeSwitcher';
+import { FlavourSwitcher } from './pages/FlavourSwitcher';
 import { TaskView } from './pages/TaskView';
 import { NotFound } from './pages/NotFound';
 
@@ -23,7 +23,7 @@ export const Router = ({ currentFlavour, setFlavour }: FlavourFunctions) => {
       <Route
         path='/settings/themes'
         element={
-          <ThemeSwitcher
+          <FlavourSwitcher
             currentFlavour={currentFlavour}
             setFlavour={setFlavour}
           />

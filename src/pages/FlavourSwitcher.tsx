@@ -7,7 +7,7 @@ type FlavourSwitcherProps = {
   setFlavour: (flavour: Flavour) => void;
 };
 
-export const ThemeSwitcher = ({
+export const FlavourSwitcher = ({
   currentFlavour,
   setFlavour,
 }: FlavourSwitcherProps) => {
