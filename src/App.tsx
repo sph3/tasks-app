@@ -2,24 +2,24 @@ import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './Router';
 
-export type Flavor = 'ctp-latte' | 'ctp-mocha' | 'ctp-frappe' | 'ctp-macchiato';
+export type Flavour = 'ctp-latte' | 'ctp-mocha' | 'ctp-frappe' | 'ctp-macchiato';
 
 export const App = () => {
-  const [flavor, setFlavor] = useState<Flavor>('ctp-latte');
+  const [flavour, setFlavour] = useState<Flavour>('ctp-latte');
 
-  const getFlavor = (): Flavor => {
-    return flavor;
+  const getFlavour = (): Flavour => {
+    return flavour;
   };
 
-  const changeFlavor = (flavor: Flavor) => {
-    setFlavor(flavor);
+  const changeFlavour = (flavor: Flavour) => {
+    setFlavour(flavour);
   };
 
   return (
-    <div className={flavor}>
+    <div className={flavour}>
       <div className='bg-ctp-base min-h-screen'>
         <BrowserRouter>
-          <Router getFlavor={getFlavor} setFlavor={setFlavor} />
+          <Router getFlavour={getFlavour} setFlavour={setFlavour} />
         </BrowserRouter>
       </div>
     </div>

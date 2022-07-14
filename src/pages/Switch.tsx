@@ -1,17 +1,17 @@
 import { Header } from '../components/Header';
-import { FlavorDemo } from '../components/FlavorDemo';
-import { Flavor } from '../App';
+import { FlavourDemo } from '../components/FlavourDemo';
+import { Flavour } from '../App';
 
-type ThemeSwitcherProps = {
-  getFlavor: () => Flavor;
-  setFlavor: (flavor: Flavor) => void;
+type FlavourSwitcherProps = {
+  getFlavour: () => Flavour;
+  setFlavour: (flavour: Flavour) => void;
 };
 
-export const Switch = ({ getFlavor, setFlavor }: ThemeSwitcherProps) => {
-  const currentFlavor = getFlavor();
+export const Switch = ({ getFlavour, setFlavour }: FlavourSwitcherProps) => {
+  const currentFlavour = getFlavour();
 
-  const setFlavorHandler = (newFlavor: Flavor) => {
-    setFlavor(newFlavor);
+  const setFlavourHandler = (newFlavour: Flavour) => {
+    setFlavour(newFlavour);
   };
 
   return (
@@ -20,21 +20,21 @@ export const Switch = ({ getFlavor, setFlavor }: ThemeSwitcherProps) => {
       <div className='p-4 w-full flex flex-col'>
         <h1 className='text-ctp-text text-2xl font-bold'>Available themes:</h1>
         <div className='flex justify-evenly gap-y-4 mt-4 items-center flex-wrap'>
-          <FlavorDemo
-            selected={currentFlavor === 'ctp-latte'}
-            flavor='ctp-latte'
+          <FlavourDemo
+            selected={currentFlavour === 'ctp-latte'}
+            flavour='ctp-latte'
           />
-          <FlavorDemo
-            selected={currentFlavor === 'ctp-mocha'}
-            flavor='ctp-mocha'
+          <FlavourDemo
+            selected={currentFlavour === 'ctp-mocha'}
+            flavour='ctp-mocha'
           />
-          <FlavorDemo
-            selected={currentFlavor === 'ctp-macchiato'}
-            flavor='ctp-macchiato'
+          <FlavourDemo
+            selected={currentFlavour === 'ctp-macchiato'}
+            flavour='ctp-macchiato'
           />
-          <FlavorDemo
-            selected={currentFlavor === 'ctp-frappe'}
-            flavor='ctp-frappe'
+          <FlavourDemo
+            selected={currentFlavour === 'ctp-frappe'}
+            flavour='ctp-frappe'
           />
         </div>
       </div>

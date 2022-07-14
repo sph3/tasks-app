@@ -1,17 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
-import { Flavor } from './App';
+import { Flavour } from './App';
 import { Create } from './components/Create';
 import { Home } from './pages/Home';
 import { Main } from './pages/Main';
 import { Switch } from './pages/Switch';
 import { TaskView } from './pages/TaskView';
 
-type FlavorFunctions = {
-  getFlavor: () => Flavor;
-  setFlavor: (flavor: Flavor) => void;
+type FlavourFunctions = {
+  getFlavour: () => Flavour;
+  setFlavour: (flavour: Flavour) => void;
 };
 
-export const Router = ({ getFlavor, setFlavor }: FlavorFunctions) => {
+export const Router = ({ getFlavour, setFlavour }: FlavourFunctions) => {
   return (
     <Routes>
       <Route path='/tasks' element={<Main />} />
@@ -20,7 +20,7 @@ export const Router = ({ getFlavor, setFlavor }: FlavorFunctions) => {
       <Route path='/tasks/:id' element={<TaskView />} />
       <Route
         path='themes'
-        element={<Switch getFlavor={getFlavor} setFlavor={setFlavor} />}
+        element={<Switch getFlavour={getFlavour} setFlavour={setFlavour} />}
       />
     </Routes>
   );
