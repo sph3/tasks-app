@@ -13,10 +13,6 @@ export const ThemeSwitcher = ({
 }: FlavourSwitcherProps) => {
   const currentFlavour = getFlavour();
 
-  const setFlavourHandler = (newFlavour: Flavour) => {
-    setFlavour(newFlavour);
-  };
-
   return (
     <>
       <Header pageTitle='Choose Your Theme' />
