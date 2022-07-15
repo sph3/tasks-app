@@ -1,9 +1,15 @@
-import { Cat, GearSix, ListChecks, PaintRoller, UserCircle } from 'phosphor-react';
+import {
+  Cat,
+  GearSix,
+  ListChecks,
+  PaintRoller,
+  UserCircle,
+} from 'phosphor-react';
 import { MenuItem } from './MenuItem';
 
 export const Menu = () => {
   return (
-    <div className='absolute bg-ctp-surface0 h-full w-full pt-2'>
+    <div className='absolute opacity-95 bg-ctp-surface0 h-full w-full pt-2 z-50'>
       <div className='p-4 flex flex-col gap-5'>
         <MenuItem
           icon={<UserCircle weight='bold' />}
@@ -19,7 +25,7 @@ export const Menu = () => {
         <MenuItem
           icon={<PaintRoller weight='bold' />}
           text='Change theme'
-          path='/miau'
+          path='/settings/themes'
         />
         <MenuItem
           icon={<GearSix weight='bold' />}
