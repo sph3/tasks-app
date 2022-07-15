@@ -23,6 +23,7 @@ export const FlavourDemo = ({
 
   const setFlavourHandler = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    localStorage.setItem('flavour', flavour);
     setFlavour(flavour);
   };
 
