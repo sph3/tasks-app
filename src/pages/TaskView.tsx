@@ -4,7 +4,7 @@ export const TaskView = () => {
   return (
     <>
       <Header pageTitle='Task View' />
-      <div className='p-3 mt-2 flex flex-col gap-4 pb-28'>
+      <div className='p-4 mt-2 flex flex-col gap-4 pb-28'>
         <div>
           <h1 className='text-3xl font-bold text-ctp-text'>Task Title Here</h1>
           <h2 className='text-lg text-ctp-subtext0'>
