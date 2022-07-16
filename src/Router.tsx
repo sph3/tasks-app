@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Flavour } from './App';
-import { Create } from './components/Create';
+import { NewTask } from './pages/NewTask';
 import { Home } from './pages/Home';
 import { Main } from './pages/Main';
 import { FlavourSwitcher } from './pages/FlavourSwitcher';
@@ -18,7 +18,7 @@ export const Router = ({ currentFlavour, setFlavour }: FlavourFunctions) => {
       <Route path='*' element={<NotFound />} />
       <Route path='/tasks' element={<Main />} />
       <Route path='/' element={<Home />} />
-      <Route path='/tasks/new' element={<Create />} />
+      <Route path='/tasks/new' element={<NewTask />} />
       <Route path='/tasks/:id' element={<TaskView />} />
       <Route
         path='/settings/themes'

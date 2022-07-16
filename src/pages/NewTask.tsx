@@ -1,7 +1,7 @@
 import { Check } from 'phosphor-react';
-import { Header } from './Header';
+import { Header } from '../components/Header';
 
-export const Create = () => {
+export const NewTask = () => {
   return (
     <>
       <Header pageTitle='New Task' />
