@@ -4,13 +4,7 @@ import { Menu } from './Menu';
 import { SquareButton } from './SquareButton';
 
 type HeaderProps = {
-  pageTitle:
-    | 'Your Tasks'
-    | 'Task View'
-    | 'New Task'
-    | 'Choose Your Theme'
-    | 'Menu'
-    | 'Not Found';
+  pageTitle: string;
   leftButton?: ReactNode | null;
   rightButton?: ReactNode | null;
 };
