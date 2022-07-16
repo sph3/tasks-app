@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { AuthContextProvider } from './contexts/auth-context';
 import { MenuContext } from './contexts/menu-context';
 import { Router } from './Router';
 
@@ -24,14 +25,16 @@ export const App = () => {
   };
 
   return (
-    <MenuContext.Provider value={{ status: menuStatus, toggleMenu }}>
-      <div className={flavour}>
-        <div className='bg-ctp-base min-h-screen'>
-          <BrowserRouter>
-            <Router currentFlavour={flavour} setFlavour={setFlavour} />
-          </BrowserRouter>
+    <AuthContextProvider>
+      <MenuContext.Provider value={{ status: menuStatus, toggleMenu }}>
+        <div className={flavour}>
+          <div className='bg-ctp-base min-h-screen'>
+            <BrowserRouter>
+              <Router currentFlavour={flavour} setFlavour={setFlavour} />
+            </BrowserRouter>
+          </div>
         </div>
-      </div>
-    </MenuContext.Provider>
+      </MenuContext.Provider>
+    </AuthContextProvider>
   );
 };

@@ -1,6 +1,16 @@
 import { FileText, GoogleLogo, Plus } from 'phosphor-react';
+import { MouseEvent } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../hooks/use-auth';
 
 export const Home = () => {
+  const { user, signInWithGoogle } = useAuth();
+
+  const handleClick = async (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    await signInWithGoogle();
+  };
+
   return (
     <div className='p-4 pt-8'>
       <div className='flex gap-4'>
@@ -20,10 +30,24 @@ export const Home = () => {
         <span className='text-ctp-subtext1 text-2xl text-center'>
           Sign in below and start organizing your tasks!
         </span>
-        <button className='rounded-2xl flex items-center text-center justify-center gap-2 bg-ctp-red text-lg font-bold text-white w-56 h-14 outline-none focus:ring-2 focus:ring-ctp-blue hover:brightness-90 duration-100'>
-          <GoogleLogo weight='bold' />
-          Sign in with Google
-        </button>
+        {user ? (
+          <Link
+            to='/tasks'
+            className='bg-ctp-blue rounded-2xl flex items-center text-center justify-center gap-2 text-lg font-bold
+           text-white w-56 h-14 outline-none focus:ring-2 focus:ring-ctp-blue hover:brightness-90 duration-100'
+          >
+            Enter the app
+          </Link>
+        ) : (
+          <button
+            onClick={handleClick}
+            className='bg-ctp-red rounded-2xl flex items-center text-center justify-center gap-2 text-lg font-bold
+           text-white w-56 h-14 outline-none focus:ring-2 focus:ring-ctp-blue hover:brightness-90 duration-100'
+          >
+            <GoogleLogo weight='bold' />
+            Sign in with Google
+          </button>
+        )}
       </div>
       <div className='py-10 pl-4 flex gap-28'>
         <div className='grid h-48 w-28 bg-ctp-surface1 rounded-2xl shrink-0'>
