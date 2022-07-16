@@ -1,5 +1,6 @@
 import { ArrowArcLeft, Plus, Trash } from 'phosphor-react';
 import { Link } from 'react-router-dom';
+import { SquareButton } from './SquareButton';
 
 export const Footer = () => {
   return (
@@ -8,14 +9,13 @@ export const Footer = () => {
         bg-gradient-to-b
         from-transparent to-ctp-base backdrop-blur-sm h-28 w-full px-8'
     >
-      <button
-        className='bg-ctp-surface1 bg-opacity-50 rounded-2xl h-12 w-12 flex items-center
-        justify-center cursor-pointer hover:bg-opacity-100 duration-100 focus:ring-2 focus:ring-ctp-overlay2'
-      >
-        <span className='text-3xl text-ctp-text'>
-          <ArrowArcLeft />
-        </span>
-      </button>
+      <SquareButton
+        translucid={true}
+        color='overlay2'
+        textColor='ctp-text'
+        size={2}
+        content={<ArrowArcLeft />}
+      />
       <Link
         to='/tasks/new'
         className='bg-ctp-blue rounded-full shadow-lg w-20 h-20 flex justify-center items-center
@@ -23,14 +23,13 @@ export const Footer = () => {
       >
         <Plus size={38} color='#fff' weight='bold' />
       </Link>
-      <button
-        className='bg-ctp-red bg-opacity-20 rounded-2xl h-12 w-12 flex items-center justify-center
-        hover:bg-opacity-40 duration-100 outline-none cursor-pointer focus:ring-2 focus:ring-ctp-red'
-      >
-        <span className='text-ctp-red text-3xl'>
-          <Trash />
-        </span>
-      </button>
+      <SquareButton
+        translucid={true}
+        color='red'
+        textColor='ctp-red'
+        size={2}
+        content={<Trash />}
+      />
     </div>
   );
 };

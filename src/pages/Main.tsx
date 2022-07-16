@@ -9,10 +9,12 @@ export const Main = () => {
   const leftButton = (
     <SquareButton
       color='surface0'
-      textColor='text'
+      textColor='ctp-text'
       content={<List weight='bold' />}
     />
   );
+
+  // TODO: Finish converting other buttons
 
   return (
     <>

@@ -1,5 +1,7 @@
+import { X } from 'phosphor-react';
 import { useRef, useState } from 'react';
 import { Header } from '../components/Header';
+import { SquareButton } from '../components/SquareButton';
 import { TagColor } from '../components/TagColor';
 
 export const NewTask = () => {
@@ -11,9 +13,26 @@ export const NewTask = () => {
     setTaskTagColor(color);
   };
 
+  const leftButton = (
+    <SquareButton
+      translucid={true}
+      color='red'
+      textColor='ctp-red'
+      content={<X />}
+    />
+  );
+
+  const rightButton = (
+    <SquareButton color='blue' textColor='white' content='Save' />
+  );
+
   return (
     <>
-      <Header pageTitle='New Task' />
+      <Header
+        pageTitle='New Task'
+        leftButton={leftButton}
+        rightButton={rightButton}
+      />
       <div className='p-4 mt-2'>
         <div className='flex flex-col gap-4'>
           <div>

@@ -27,15 +27,13 @@ export const Header = ({ pageTitle, leftButton, rightButton }: HeaderProps) => {
   return (
     <div>
       <div className='flex flex-row justify-between items-center text-center h-16 bg-ctp-mantle flex-wrap px-2'>
-        <div className=''>{leftButton}</div>
+        <div>{leftButton}</div>
 
-        <div className=''>
+        <div>
           <span className='font-bold text-xl text-ctp-text'>{pageTitle}</span>
         </div>
 
-        <div>
-          <SquareButton color='blue' textColor='base' content='Save' />
-        </div>
+        <div>{rightButton}</div>
       </div>
       {menuStatus ? <Menu /> : ''}
     </div>
