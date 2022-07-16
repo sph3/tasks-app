@@ -5,6 +5,7 @@ import { SquareButton } from '../components/SquareButton';
 export const TaskView = () => {
   const leftButton = (
     <SquareButton
+      action='/tasks'
       color='surface0'
       textColor='ctp-text'
       content={<ArrowUUpLeft />}
@@ -13,6 +14,7 @@ export const TaskView = () => {
 
   const rightButton = (
     <SquareButton
+      action=''
       translucid={true}
       color='red'
       textColor='ctp-red'
