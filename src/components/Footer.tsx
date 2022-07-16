@@ -1,4 +1,5 @@
 import { ArrowArcLeft, Plus, Trash } from 'phosphor-react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -15,12 +16,13 @@ export const Footer = () => {
           <ArrowArcLeft />
         </span>
       </button>
-      <button
+      <Link
+        to='/tasks/new'
         className='bg-ctp-blue rounded-full shadow-lg w-20 h-20 flex justify-center items-center
         hover:brightness-90 duration-100 focus:ring-2 outline-none cursor-pointer focus:ring-ctp-sky'
       >
         <Plus size={38} color='#fff' weight='bold' />
-      </button>
+      </Link>
       <button
         className='bg-ctp-red bg-opacity-20 rounded-2xl h-12 w-12 flex items-center justify-center
         hover:bg-opacity-40 duration-100 outline-none cursor-pointer focus:ring-2 focus:ring-ctp-red'

@@ -34,7 +34,7 @@ export const NewTask = () => {
               id='taskDescription'
               placeholder='Bring milk, bread, candy...'
               className='flex items-center bg-ctp-surface0 text-ctp-subtext1 focus:text-ctp-text
-                placeholder-ctp-overlay1
+                placeholder-ctp-overlay1 resize-none
                 rounded-2xl w-full h-28 mt-1 p-3 text-xl'
             />
           </div>
