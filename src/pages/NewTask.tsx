@@ -1,7 +1,16 @@
-import { Check } from 'phosphor-react';
+import { useRef, useState } from 'react';
 import { Header } from '../components/Header';
+import { TagColor } from '../components/TagColor';
 
 export const NewTask = () => {
+  const taskTitle = useRef<HTMLInputElement>(null);
+  const taskDescription = useRef<HTMLTextAreaElement>(null);
+  const [taskTagColor, setTaskTagColor] = useState<TagColor>('yellow');
+
+  const handleClickColor = (color: TagColor) => {
+    setTaskTagColor(color);
+  };
+
   return (
     <>
       <Header pageTitle='New Task' />
@@ -15,6 +24,7 @@ export const NewTask = () => {
               Title:
             </label>
             <input
+              ref={taskTitle}
               type='text'
               id='taskTitle'
               className='bg-ctp-surface0 text-ctp-subtext1 focus:text-ctp-text placeholder-ctp-overlay1
@@ -31,6 +41,7 @@ export const NewTask = () => {
               Description:
             </label>
             <textarea
+              ref={taskDescription}
               id='taskDescription'
               placeholder='Bring milk, bread, candy...'
               className='flex items-center bg-ctp-surface0 text-ctp-subtext1 focus:text-ctp-text
@@ -46,16 +57,45 @@ export const NewTask = () => {
             >
               Tag color:
             </label>
-            <div id='taskColor' className='flex justify-around mt-4'>
-              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-sky rounded-xl outline-none'></button>
-              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-blue rounded-xl outline-none'></button>
-              <button className='border-2 border-ctp-crust text-white flex items-center justify-center h-8 w-10 bg-ctp-green rounded-xl outline-none'>
-                <Check weight='bold' />
-              </button>
-              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-yellow rounded-xl outline-none'></button>
-              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-peach rounded-xl outline-none'></button>
-              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-mauve rounded-xl outline-none'></button>
-              <button className='text-white flex items-center justify-center h-8 w-10 bg-ctp-red rounded-xl outline-none'></button>
+            <div
+              id='taskColor'
+              className='flex justify-around items-center mt-4'
+            >
+              <TagColor
+                selectedColor={taskTagColor}
+                color='sky'
+                handleClickColor={handleClickColor}
+              />
+              <TagColor
+                selectedColor={taskTagColor}
+                color='blue'
+                handleClickColor={handleClickColor}
+              />
+              <TagColor
+                selectedColor={taskTagColor}
+                color='green'
+                handleClickColor={handleClickColor}
+              />
+              <TagColor
+                selectedColor={taskTagColor}
+                color='yellow'
+                handleClickColor={handleClickColor}
+              />
+              <TagColor
+                selectedColor={taskTagColor}
+                color='peach'
+                handleClickColor={handleClickColor}
+              />
+              <TagColor
+                selectedColor={taskTagColor}
+                color='mauve'
+                handleClickColor={handleClickColor}
+              />
+              <TagColor
+                selectedColor={taskTagColor}
+                color='red'
+                handleClickColor={handleClickColor}
+              />
             </div>
           </div>
         </div>
