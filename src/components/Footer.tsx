@@ -10,6 +10,7 @@ export const Footer = () => {
         from-transparent to-ctp-base backdrop-blur-sm h-28 w-full px-8'
     >
       <SquareButton
+        action=''
         translucid={true}
         color='overlay2'
         textColor='ctp-text'
@@ -24,6 +25,7 @@ export const Footer = () => {
         <Plus size={38} color='#fff' weight='bold' />
       </Link>
       <SquareButton
+        action=''
         translucid={true}
         color='red'
         textColor='ctp-red'

@@ -15,6 +15,7 @@ export const NewTask = () => {
 
   const leftButton = (
     <SquareButton
+      action='/tasks'
       translucid={true}
       color='red'
       textColor='ctp-red'
@@ -23,7 +24,7 @@ export const NewTask = () => {
   );
 
   const rightButton = (
-    <SquareButton color='blue' textColor='white' content='Save' />
+    <SquareButton action='' color='blue' textColor='white' content='Save' />
   );
 
   return (

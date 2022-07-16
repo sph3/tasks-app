@@ -1,20 +1,23 @@
 import { List } from 'phosphor-react';
+import { useContext } from 'react';
 import { Footer } from '../components/Footer';
 import { Greeting } from '../components/Greeting';
 import { Header } from '../components/Header';
 import { SquareButton } from '../components/SquareButton';
 import { TaskList } from '../components/TaskList';
+import { MenuContext } from '../contexts/menu-context';
 
 export const Main = () => {
+  const { toggleMenu } = useContext(MenuContext);
+
   const leftButton = (
     <SquareButton
+      action={toggleMenu}
       color='surface0'
       textColor='ctp-text'
       content={<List weight='bold' />}
     />
   );
-
-  // TODO: Finish converting other buttons
 
   return (
     <>

@@ -16,13 +16,7 @@ type HeaderProps = {
 };
 
 export const Header = ({ pageTitle, leftButton, rightButton }: HeaderProps) => {
-  const { status: menuStatus, toggleMenu } = useContext(MenuContext);
-
-  const handleClick = () => {
-    if (pageTitle !== 'Task View') {
-      toggleMenu();
-    }
-  };
+  const { status: menuStatus } = useContext(MenuContext);
 
   return (
     <div>

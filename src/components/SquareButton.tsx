@@ -1,18 +1,20 @@
 import { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 
-type SquareButtonProps = React.ComponentProps<'button'> & {
+type SquareButtonProps = {
   color: string;
   textColor: string;
   content: string | ReactNode;
   translucid?: boolean;
   size?: number;
+  action: (() => void) | string;
 };
 
 export const SquareButton = ({
   color,
   textColor,
   content,
-  onClick,
+  action,
   translucid,
   size,
 }: SquareButtonProps) => {
@@ -31,17 +33,21 @@ export const SquareButton = ({
     textSize = typeof content === 'string' ? 'text-xl' : 'text-3xl';
   }
 
-  return (
-    <button
-      onClick={onClick}
-      className={`text-${textColor} bg-ctp-${color} ${
-        typeof content === 'string' ? 'px-3' : ''
-      } ${backgroundClasses} ${sizeClasses}
-        flex text-center
-        items-center justify-center outline-none duration-100
-         focus:ring-2`}
-    >
-      <span className={textSize}>{content}</span>
-    </button>
-  );
+  const allClasses = `flex text-center items-center justify-center outline-none
+    duration-100 focus:ring-2 ${sizeClasses} ${backgroundClasses} text-${textColor} bg-ctp-${color} ${
+    typeof content === 'string' ? 'px-3' : ''
+  }`;
+
+  const element =
+    typeof action === 'string' ? (
+      <Link to={action} className={allClasses}>
+        <span className={textSize}>{content}</span>
+      </Link>
+    ) : (
+      <button onClick={action} className={allClasses}>
+        <span className={textSize}>{content}</span>
+      </button>
+    );
+
+  return element;
 };
