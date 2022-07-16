@@ -1,7 +1,15 @@
+import { useAuth } from '../hooks/use-auth';
+
 export const Greeting = () => {
+  // const { user } = useAuth();
+  const user = {
+    name: 'World!',
+  };
   return (
     <div>
-      <h1 className='font-bold text-4xl text-ctp-text'>Hello, World!</h1>
+      <h1 className='font-bold text-4xl text-ctp-text'>
+        Hello, {user?.name.split(' ')[0]}
+      </h1>
     </div>
   );
 };
