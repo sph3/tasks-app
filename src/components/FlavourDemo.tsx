@@ -1,36 +1,30 @@
-import { MouseEvent } from 'react';
-import { Flavour } from '../App';
+import { Flavour } from '../@types';
+import { useFlavour } from '../hooks/useFlavour';
 
 type FlavourDemoProps = {
-  flavour: Flavour;
-  selected: boolean;
-  setFlavour: (flavour: Flavour) => void;
+  demoFlavour: Flavour;
 };
 
-export const FlavourDemo = ({
-  flavour,
-  selected,
-  setFlavour,
-}: FlavourDemoProps) => {
-  let flavourName = flavour.split('-')[1];
+export const FlavourDemo = ({ demoFlavour }: FlavourDemoProps) => {
+  const { flavour, setFlavour } = useFlavour();
+
+  const selected = flavour === demoFlavour;
+
+  let flavourName = demoFlavour.split('-')[1];
   flavourName = flavourName.charAt(0).toUpperCase() + flavourName.slice(1);
 
   if (flavourName === 'Frappe') {
-    flavourName = flavourName.slice(0, -1) + 'é';
+    flavourName = 'Frappé';
   }
 
   const selectedClasses = 'border-4 border-ctp-subtext1';
 
-  const setFlavourHandler = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    localStorage.setItem('flavour', flavour);
-    setFlavour(flavour);
-  };
-
   return (
     <button
-      onClick={setFlavourHandler}
-      className={`${flavour} ${
+      onClick={() => {
+        setFlavour(demoFlavour);
+      }}
+      className={`${demoFlavour} ${
         selected ? selectedClasses : ''
       } py-4 h-[6.5rem] outline-none text-center w-36 bg-ctp-base rounded-2xl flex flex-col justify-around items-center shadow-lg`}
     >
