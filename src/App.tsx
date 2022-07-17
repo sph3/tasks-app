@@ -10,14 +10,23 @@ export const App = () => {
   const [flavour, setFlavour] = useState<Flavour>('latte');
   const [menuStatus, setMenuStatus] = useState(false);
 
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    setFlavour('mocha');
-  }
+  const handleSetFlavour = (flavour: Flavour) => {
+    localStorage.setItem('flavour', flavour);
+    setFlavour(flavour);
+  };
 
   useEffect(() => {
     const storedFlavour = localStorage.getItem('flavour');
-    // @ts-ignore
-    if (storedFlavour !== flavour) setFlavour(storedFlavour);
+    if (storedFlavour && storedFlavour !== flavour) {
+      // @ts-ignore
+      handleSetFlavour(storedFlavour);
+      return;
+    }
+
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.setItem('flavour', 'mocha');
+      setFlavour('mocha');
+    }
   }, []);
 
   const toggleMenu = () => {
@@ -26,7 +35,9 @@ export const App = () => {
 
   return (
     <AuthContextProvider>
-      <FlavourContext.Provider value={{ flavour: flavour, setFlavour }}>
+      <FlavourContext.Provider
+        value={{ flavour: flavour, setFlavour: handleSetFlavour }}
+      >
         <MenuContext.Provider value={{ status: menuStatus, toggleMenu }}>
           <div className={`bg-${flavour}-base min-h-screen`}>
             <BrowserRouter>

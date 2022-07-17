@@ -16,15 +16,11 @@ export const FlavourDemo = ({ demoFlavour }: FlavourDemoProps) => {
 
   const selectedClasses = `border-4 border-${demoFlavour}-subtext1`;
 
-  const setFlavourHandler = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    localStorage.setItem('flavour', demoFlavour);
-    setFlavour(demoFlavour);
-  };
-
   return (
     <button
-      onClick={setFlavourHandler}
+      onClick={() => {
+        setFlavour(demoFlavour);
+      }}
       className={`${
         selected ? selectedClasses : ''
       } py-4 h-[6.5rem] outline-none text-center w-36 bg-${demoFlavour}-base rounded-2xl flex flex-col justify-around items-center shadow-lg`}
