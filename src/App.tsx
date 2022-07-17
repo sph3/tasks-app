@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { Flavour } from './@types';
 import { AuthContextProvider } from './contexts/auth-context';
+import { FlavourContext } from './contexts/flavour-context';
 import { MenuContext } from './contexts/menu-context';
 import { Router } from './Router';
 
-export type Flavour =
-  | 'ctp-latte'
-  | 'ctp-mocha'
-  | 'ctp-frappe'
-  | 'ctp-macchiato';
-
 export const App = () => {
-  const [flavour, setFlavour] = useState<Flavour>('ctp-latte');
+  const [flavour, setFlavour] = useState<Flavour>('latte');
   const [menuStatus, setMenuStatus] = useState(false);
+
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    setFlavour('mocha');
+  }
 
   useEffect(() => {
     const storedFlavour = localStorage.getItem('flavour');
@@ -26,15 +26,15 @@ export const App = () => {
 
   return (
     <AuthContextProvider>
-      <MenuContext.Provider value={{ status: menuStatus, toggleMenu }}>
-        <div className={flavour}>
+      <FlavourContext.Provider value={{ flavour: flavour, setFlavour }}>
+        <MenuContext.Provider value={{ status: menuStatus, toggleMenu }}>
           <div className='bg-ctp-base min-h-screen'>
             <BrowserRouter>
-              <Router currentFlavour={flavour} setFlavour={setFlavour} />
+              <Router />
             </BrowserRouter>
           </div>
-        </div>
-      </MenuContext.Provider>
+        </MenuContext.Provider>
+      </FlavourContext.Provider>
     </AuthContextProvider>
   );
 };
