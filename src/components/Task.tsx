@@ -1,12 +1,5 @@
 import { formatDistance } from 'date-fns';
-import {
-  ArchiveBox,
-  CheckCircle,
-  NotePencil,
-  Timer,
-  X,
-  XCircle,
-} from 'phosphor-react';
+import { ArchiveBox, Timer } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 import { ITask } from '../@types';
 
@@ -27,12 +20,12 @@ export const Task = ({ title, completed, color, setDate }: TaskProps) => {
 
   if (completed) {
     taskIcon = (
-      <div
+      <button
         className='-mr-2 bg-ctp-overlay0 bg-opacity-60 rounded-2xl h-10 w-10
-        flex items-center justify-center'
+        flex items-center justify-center focus:ring-2 focus:ring-ctp-text outline-none'
       >
         <ArchiveBox weight='bold' />
-      </div>
+      </button>
     );
     iconColor = 'text-ctp-text';
   } else if (setDate) {
