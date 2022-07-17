@@ -7,9 +7,13 @@ import { TagColor } from '../components/TagColor';
 export const NewTask = () => {
   const taskTitle = useRef<HTMLInputElement>(null);
   const taskDescription = useRef<HTMLTextAreaElement>(null);
-  const [taskTagColor, setTaskTagColor] = useState<TagColor>('yellow');
+  const [taskTagColor, setTaskTagColor] = useState('');
 
-  const handleClickColor = (color: TagColor) => {
+  const handleClickColor = (color: string) => {
+    if (taskTagColor === color) {
+      setTaskTagColor('');
+      return;
+    }
     setTaskTagColor(color);
   };
 
@@ -90,37 +94,37 @@ export const NewTask = () => {
             >
               <TagColor
                 selectedColor={taskTagColor}
-                color='sky'
+                color='bg-ctp-sky'
                 handleClickColor={handleClickColor}
               />
               <TagColor
                 selectedColor={taskTagColor}
-                color='blue'
+                color='bg-ctp-blue'
                 handleClickColor={handleClickColor}
               />
               <TagColor
                 selectedColor={taskTagColor}
-                color='green'
+                color='bg-ctp-green'
                 handleClickColor={handleClickColor}
               />
               <TagColor
                 selectedColor={taskTagColor}
-                color='yellow'
+                color='bg-ctp-yellow'
                 handleClickColor={handleClickColor}
               />
               <TagColor
                 selectedColor={taskTagColor}
-                color='peach'
+                color='bg-ctp-peach'
                 handleClickColor={handleClickColor}
               />
               <TagColor
                 selectedColor={taskTagColor}
-                color='mauve'
+                color='bg-ctp-mauve'
                 handleClickColor={handleClickColor}
               />
               <TagColor
                 selectedColor={taskTagColor}
-                color='red'
+                color='bg-ctp-red'
                 handleClickColor={handleClickColor}
               />
             </div>
