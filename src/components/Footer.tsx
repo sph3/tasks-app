@@ -11,9 +11,10 @@ export const Footer = () => {
     >
       <SquareButton
         action=''
+        focusRingColor='focus:ring-ctp-text'
         translucid={true}
-        color='overlay2'
-        textColor='ctp-text'
+        color='bg-ctp-overlay2'
+        textColor='text-ctp-text'
         size={2}
         content={<ArrowArcLeft />}
       />
@@ -26,9 +27,10 @@ export const Footer = () => {
       </Link>
       <SquareButton
         action=''
+        focusRingColor='focus:ring-ctp-red'
         translucid={true}
-        color='red'
-        textColor='ctp-red'
+        color='bg-ctp-red'
+        textColor='text-ctp-red'
         size={2}
         content={<Trash />}
       />

@@ -16,15 +16,22 @@ export const NewTask = () => {
   const leftButton = (
     <SquareButton
       action='/tasks'
+      focusRingColor='focus:ring-ctp-red'
       translucid={true}
-      color='red'
-      textColor='ctp-red'
+      color='bg-ctp-red'
+      textColor='text-ctp-red'
       content={<X />}
     />
   );
 
   const rightButton = (
-    <SquareButton action='' color='blue' textColor='white' content='Save' />
+    <SquareButton
+      action=''
+      focusRingColor='focus:ring-ctp-text'
+      color='bg-ctp-blue'
+      textColor='text-white'
+      content='Save'
+    />
   );
 
   return (

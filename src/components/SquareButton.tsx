@@ -7,11 +7,13 @@ type SquareButtonProps = {
   content: string | ReactNode;
   translucid?: boolean;
   size?: number;
+  focusRingColor: string;
   action: (() => void) | string;
 };
 
 export const SquareButton = ({
   color,
+  focusRingColor,
   textColor,
   content,
   action,
@@ -19,7 +21,7 @@ export const SquareButton = ({
   size,
 }: SquareButtonProps) => {
   const backgroundClasses = translucid
-    ? 'bg-opacity-20 hover:bg-opacity-30 focus:ring-ctp-' + color
+    ? `bg-opacity-20 hover:bg-opacity-30 ${focusRingColor}`
     : 'hover:brightness-90 focus:ring-ctp-text';
 
   let sizeClasses;
@@ -34,7 +36,7 @@ export const SquareButton = ({
   }
 
   const allClasses = `flex text-center items-center justify-center outline-none
-    duration-100 focus:ring-2 ${sizeClasses} ${backgroundClasses} text-${textColor} bg-ctp-${color} ${
+    duration-100 focus:ring-2 ${sizeClasses} ${backgroundClasses} ${textColor} ${color} ${
     typeof content === 'string' ? 'px-3' : ''
   }`;
 

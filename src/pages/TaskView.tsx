@@ -5,19 +5,21 @@ import { SquareButton } from '../components/SquareButton';
 export const TaskView = () => {
   const leftButton = (
     <SquareButton
+      focusRingColor='focus:ring-ctp-text'
       action='/tasks'
-      color='surface0'
-      textColor='ctp-text'
+      color='bg-ctp-surface0'
+      textColor='text-ctp-text'
       content={<ArrowUUpLeft />}
     />
   );
 
   const rightButton = (
     <SquareButton
+      focusRingColor='focus:ring-ctp-red'
       action=''
       translucid={true}
-      color='red'
-      textColor='ctp-red'
+      color='bg-ctp-red'
+      textColor='text-ctp-red'
       content={<Trash weight='bold' />}
     />
   );

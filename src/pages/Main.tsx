@@ -13,8 +13,9 @@ export const Main = () => {
   const leftButton = (
     <SquareButton
       action={toggleMenu}
-      color='surface0'
-      textColor='ctp-text'
+      focusRingColor='focus:ring-ctp-text'
+      color='bg-ctp-surface0'
+      textColor='text-ctp-text'
       content={<List weight='bold' />}
     />
   );
