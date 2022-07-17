@@ -1,5 +1,6 @@
 import { Check } from 'phosphor-react';
-import { MouseEvent, useState } from 'react';
+import { useContext } from 'react';
+import { FlavourContext } from '../contexts/flavour-context';
 
 export type TagColor =
   | 'red'
@@ -21,6 +22,7 @@ export const TagColor = ({
   color,
   selectedColor,
 }: TagColorProps) => {
+  const { flavour } = useContext(FlavourContext);
   const selected = selectedColor === color;
 
   return (
@@ -28,10 +30,10 @@ export const TagColor = ({
       onClick={() => {
         handleClickColor(color);
       }}
-      className={`text-ctp-crust flex items-center justify-center ${
+      className={`text-${flavour}-crust flex items-center justify-center ${
         selected ? 'h-9 w-11' : 'h-8 w-10'
       }
-        rounded-xl outline-none bg-ctp-${color}`}
+        rounded-xl outline-none bg-${flavour}-${color}`}
     >
       {selected ? <Check weight='bold' /> : ''}
     </button>

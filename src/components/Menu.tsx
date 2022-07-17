@@ -5,11 +5,16 @@ import {
   PaintRoller,
   UserCircle,
 } from 'phosphor-react';
+import { useContext } from 'react';
+import { FlavourContext } from '../contexts/flavour-context';
 import { MenuItem } from './MenuItem';
 
 export const Menu = () => {
+  const { flavour } = useContext(FlavourContext);
   return (
-    <div className='absolute opacity-95 bg-ctp-surface0 h-full w-full pt-2 z-50'>
+    <div
+      className={`absolute opacity-95 bg-${flavour}-surface0 h-full w-full pt-2 z-50`}
+    >
       <div className='p-4 flex flex-col gap-5'>
         <MenuItem
           icon={<UserCircle weight='bold' />}

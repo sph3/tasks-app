@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FlavourContext } from '../contexts/flavour-context';
 
 type SquareButtonProps = {
   color: string;
@@ -18,12 +19,18 @@ export const SquareButton = ({
   translucid,
   size,
 }: SquareButtonProps) => {
+  const { flavour } = useContext(FlavourContext);
+
   const backgroundClasses = translucid
-    ? 'bg-opacity-20 hover:bg-opacity-30 focus:ring-ctp-' + color
-    : 'hover:brightness-90 focus:ring-ctp-text';
+    ? `bg-opacity-20 hover:bg-opacity-30 focus:ring-${flavour}-${color}`
+    : `hover:brightness-90 focus:ring-${flavour}-text`;
 
   let sizeClasses;
   let textSize;
+
+  const realTextColor = textColor.includes('ctp')
+    ? textColor.split('-')[1]
+    : textColor;
 
   if (!size || size === 1) {
     sizeClasses = 'h-10 min-w-[2.5rem] rounded-lg';
@@ -34,7 +41,7 @@ export const SquareButton = ({
   }
 
   const allClasses = `flex text-center items-center justify-center outline-none
-    duration-100 focus:ring-2 ${sizeClasses} ${backgroundClasses} text-${textColor} bg-ctp-${color} ${
+    duration-100 focus:ring-2 ${sizeClasses} ${backgroundClasses} text-${realTextColor} bg-${flavour}-${color} ${
     typeof content === 'string' ? 'px-3' : ''
   }`;
 

@@ -1,13 +1,16 @@
 import { X } from 'phosphor-react';
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { Header } from '../components/Header';
 import { SquareButton } from '../components/SquareButton';
 import { TagColor } from '../components/TagColor';
+import { FlavourContext } from '../contexts/flavour-context';
 
 export const NewTask = () => {
   const taskTitle = useRef<HTMLInputElement>(null);
   const taskDescription = useRef<HTMLTextAreaElement>(null);
   const [taskTagColor, setTaskTagColor] = useState<TagColor>('yellow');
+
+  const { flavour } = useContext(FlavourContext);
 
   const handleClickColor = (color: TagColor) => {
     setTaskTagColor(color);
@@ -39,7 +42,7 @@ export const NewTask = () => {
           <div>
             <label
               htmlFor='taskTitle'
-              className='text-ctp-text font-bold text-2xl'
+              className={`text-${flavour}-text font-bold text-2xl`}
             >
               Title:
             </label>
@@ -47,15 +50,15 @@ export const NewTask = () => {
               ref={taskTitle}
               type='text'
               id='taskTitle'
-              className='bg-ctp-surface0 text-ctp-subtext1 focus:text-ctp-text placeholder-ctp-overlay1
-                rounded-2xl w-full h-14 mt-1 p-3 text-xl'
+              className={`bg-${flavour}-surface0 text-${flavour}-subtext1 focus:text-${flavour}-text placeholder-${flavour}-overlay1
+                rounded-2xl w-full h-14 mt-1 p-3 text-xl`}
               placeholder='Go to the grocery store...'
             />
           </div>
 
           <div>
             <label
-              className='text-ctp-text font-bold text-2xl'
+              className={`text-${flavour}-text font-bold text-2xl`}
               htmlFor='taskDescription'
             >
               Description:
@@ -64,16 +67,16 @@ export const NewTask = () => {
               ref={taskDescription}
               id='taskDescription'
               placeholder='Bring milk, bread, candy...'
-              className='flex items-center bg-ctp-surface0 text-ctp-subtext1 focus:text-ctp-text
-                placeholder-ctp-overlay1 resize-none
-                rounded-2xl w-full h-28 mt-1 p-3 text-xl'
+              className={`flex items-center bg-${flavour}-surface0 text-${flavour}-subtext1 focus:text-${flavour}-text
+                placeholder-${flavour}-overlay1 resize-none
+                rounded-2xl w-full h-28 mt-1 p-3 text-xl`}
             />
           </div>
 
           <div>
             <label
               htmlFor='taskColor'
-              className='text-ctp-text font-bold text-2xl'
+              className={`text-${flavour}-text font-bold text-2xl`}
             >
               Tag color:
             </label>

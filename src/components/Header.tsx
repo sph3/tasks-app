@@ -1,7 +1,7 @@
 import { ReactNode, useContext } from 'react';
+import { FlavourContext } from '../contexts/flavour-context';
 import { MenuContext } from '../contexts/menu-context';
 import { Menu } from './Menu';
-import { SquareButton } from './SquareButton';
 
 type HeaderProps = {
   pageTitle: string;
@@ -10,15 +10,20 @@ type HeaderProps = {
 };
 
 export const Header = ({ pageTitle, leftButton, rightButton }: HeaderProps) => {
+  const { flavour } = useContext(FlavourContext);
   const { status: menuStatus } = useContext(MenuContext);
 
   return (
     <div>
-      <div className='flex flex-row justify-between items-center text-center h-16 bg-ctp-mantle flex-wrap px-2'>
+      <div
+        className={`flex flex-row justify-between items-center text-center h-16 bg-${flavour}-mantle flex-wrap px-2`}
+      >
         <div>{leftButton}</div>
 
         <div>
-          <span className='font-bold text-xl text-ctp-text'>{pageTitle}</span>
+          <span className={`font-bold text-xl text-${flavour}-text`}>
+            {pageTitle}
+          </span>
         </div>
 
         <div>{rightButton}</div>

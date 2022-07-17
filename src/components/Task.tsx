@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { FlavourContext } from '../contexts/flavour-context';
 
 type TaskProps = {
   text: string;
@@ -6,10 +8,14 @@ type TaskProps = {
 };
 
 export const Task = ({ text, date }: TaskProps) => {
+  const { flavour } = useContext(FlavourContext);
   return (
-    <Link to='/tasks/id' className='rounded-2xl w-full bg-ctp-surface0 shadow-lg h-16 flex justify-between items-center p-4'>
-      <span className='text-ctp-text text-lg'>{text}</span>
-      <span className='text-ctp-subtext0 text-base'>
+    <Link
+      to='/tasks/id'
+      className={`rounded-2xl w-full bg-${flavour}-surface0 shadow-lg h-16 flex justify-between items-center p-4`}
+    >
+      <span className={`text-${flavour}-text text-lg`}>{text}</span>
+      <span className={`text-${flavour}-subtext0 text-base`}>
         {date.toLocaleDateString(undefined, {
           year: 'numeric',
           month: '2-digit',

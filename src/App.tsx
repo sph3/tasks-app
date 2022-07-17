@@ -28,7 +28,7 @@ export const App = () => {
     <AuthContextProvider>
       <FlavourContext.Provider value={{ flavour: flavour, setFlavour }}>
         <MenuContext.Provider value={{ status: menuStatus, toggleMenu }}>
-          <div className='bg-ctp-base min-h-screen'>
+          <div className={`bg-${flavour}-base min-h-screen`}>
             <BrowserRouter>
               <Router />
             </BrowserRouter>
