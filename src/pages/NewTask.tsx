@@ -45,7 +45,7 @@ export const NewTask = () => {
         leftButton={leftButton}
         rightButton={rightButton}
       />
-      <div className='p-4 mt-2'>
+      <form className='p-4 mt-2'>
         <div className='flex flex-col gap-4'>
           <div>
             <label
@@ -130,7 +130,7 @@ export const NewTask = () => {
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </>
   );
 };

@@ -1,6 +1,9 @@
 import { ArrowUUpLeft, Trash } from 'phosphor-react';
+import { ITask } from '../@types';
 import { Header } from '../components/Header';
 import { SquareButton } from '../components/SquareButton';
+
+type TaskProps = ITask;
 
 export const TaskView = () => {
   const leftButton = (
