@@ -3,7 +3,7 @@ import { MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/use-auth';
 
-export const Home = () => {
+export const LandingPage = () => {
   const { user, signInWithGoogle } = useAuth();
 
   const handleClick = async (event: MouseEvent<HTMLButtonElement>) => {

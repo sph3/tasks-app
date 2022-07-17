@@ -7,7 +7,7 @@ import { SquareButton } from '../components/SquareButton';
 import { TaskList } from '../components/TaskList';
 import { MenuContext } from '../contexts/menu-context';
 
-export const Main = () => {
+export const MainPage = () => {
   const { toggleMenu } = useContext(MenuContext);
 
   const leftButton = (
