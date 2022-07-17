@@ -1,5 +1,12 @@
 import { formatDistance } from 'date-fns';
-import { CheckCircle, Timer, X, XCircle } from 'phosphor-react';
+import {
+  ArchiveBox,
+  CheckCircle,
+  NotePencil,
+  Timer,
+  X,
+  XCircle,
+} from 'phosphor-react';
 import { Link } from 'react-router-dom';
 import { ITask } from '../@types';
 
@@ -16,13 +23,25 @@ export const Task = ({ title, completed, color, setDate }: TaskProps) => {
   }
 
   let taskIcon;
+  let iconColor;
 
   if (completed) {
-    taskIcon = <CheckCircle weight='bold' />;
+    taskIcon = (
+      <div
+        className='-mr-2 bg-ctp-overlay0 bg-opacity-60 rounded-2xl h-10 w-10
+        flex items-center justify-center'
+      >
+        <ArchiveBox weight='bold' />
+      </div>
+    );
+    iconColor = 'text-ctp-text';
   } else if (setDate) {
     taskIcon = <Timer weight='bold' />;
-  } else {
-    taskIcon = <XCircle weight='bold' />;
+    if (timeToTask === 'expired') {
+      iconColor = 'text-ctp-red';
+    } else {
+      iconColor = 'text-ctp-yellow';
+    }
   }
 
   return (
@@ -33,7 +52,10 @@ export const Task = ({ title, completed, color, setDate }: TaskProps) => {
         ></div>
         <Link
           to='/tasks/id'
-          className='rounded-tr-2xl rounded-br-2xl w-full bg-ctp-surface0 shadow-lg h-16 flex justify-between items-center p-4'
+          className={`rounded-tr-2xl rounded-br-2xl w-full ${
+            completed ? 'bg-ctp-green bg-opacity-25' : 'bg-ctp-surface0'
+          } shadow-lg h-16 flex
+            justify-between items-center p-4`}
         >
           <span className='text-ctp-text text-lg'>{title}</span>
           <div className='flex gap-2 items-center justify-end'>
@@ -42,13 +64,7 @@ export const Task = ({ title, completed, color, setDate }: TaskProps) => {
             ) : (
               ''
             )}
-            <span
-              className={`text-xl ${
-                completed ? 'text-ctp-green' : 'text-ctp-red'
-              }`}
-            >
-              {taskIcon}
-            </span>
+            <span className={`text-2xl ${iconColor}`}>{taskIcon}</span>
           </div>
         </Link>
       </div>

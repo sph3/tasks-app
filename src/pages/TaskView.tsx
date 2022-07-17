@@ -5,7 +5,7 @@ import { SquareButton } from '../components/SquareButton';
 
 type TaskProps = ITask;
 
-export const TaskView = () => {
+export const TaskView = (props: TaskProps) => {
   const leftButton = (
     <SquareButton
       focusRingColor='focus:ring-ctp-text'

@@ -30,7 +30,7 @@ export const TaskList = () => {
             title='Tarefa de teste'
             completed={false}
           />
-          <Task color='bg-ctp-sky' title='Tarefa de teste' completed={true} />
+          <Task color='bg-ctp-sky' title='Tarefa de teste' completed={false} />
           <Task
             color='bg-ctp-mauve'
             title='Tarefa de teste'
