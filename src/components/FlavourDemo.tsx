@@ -1,5 +1,5 @@
 import { Flavour } from '../@types';
-import { useFlavour } from '../hooks/useFlavour';
+import { useFlavour } from '../hooks/use-flavour';
 
 type FlavourDemoProps = {
   demoFlavour: Flavour;
