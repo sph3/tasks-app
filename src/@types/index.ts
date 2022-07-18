@@ -10,5 +10,5 @@ export interface ITask {
   color: string;
   setDate?: Date;
   completed: boolean;
-  createAt: Date;
+  createdAt: Date;
 }

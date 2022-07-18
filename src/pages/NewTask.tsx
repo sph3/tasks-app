@@ -1,5 +1,6 @@
 import { X } from 'phosphor-react';
 import { useRef, useState } from 'react';
+import { ITask } from '../@types';
 import { Header } from '../components/Header';
 import { SquareButton } from '../components/SquareButton';
 import { TagColor } from '../components/TagColor';
@@ -8,6 +9,8 @@ export const NewTask = () => {
   const taskTitle = useRef<HTMLInputElement>(null);
   const taskDescription = useRef<HTMLTextAreaElement>(null);
   const [taskTagColor, setTaskTagColor] = useState('');
+  const [characterCount, setCharacterCount] = useState(0);
+  const [isMaxLength, setIsMaxLength] = useState(false);
 
   const handleClickColor = (color: string) => {
     if (taskTagColor === color) {
@@ -15,6 +18,36 @@ export const NewTask = () => {
       return;
     }
     setTaskTagColor(color);
+  };
+
+  const createTask = () => {
+    const title = taskTitle.current?.value;
+    const description = taskDescription.current?.value;
+    const color = taskTagColor ?? 'bg-ctp-blue';
+
+    let newTask: ITask;
+
+    if (title && description) {
+      newTask = {
+        title,
+        description,
+        color,
+        createdAt: new Date(),
+        completed: false,
+      };
+    }
+  };
+
+  const maxLength = 40;
+
+  const handleKeyPress = () => {
+    const currentCharacterCount = taskTitle.current!.value.length | 0;
+    setCharacterCount(currentCharacterCount);
+    if (currentCharacterCount >= maxLength) {
+      setIsMaxLength(true);
+    } else {
+      setIsMaxLength(false);
+    }
   };
 
   const leftButton = (
@@ -30,7 +63,7 @@ export const NewTask = () => {
 
   const rightButton = (
     <SquareButton
-      action=''
+      action={createTask}
       focusRingColor='focus:ring-ctp-text'
       color='bg-ctp-blue'
       textColor='text-white'
@@ -55,13 +88,25 @@ export const NewTask = () => {
               Title:
             </label>
             <input
+              maxLength={maxLength}
               ref={taskTitle}
+              onChange={handleKeyPress}
               type='text'
+              name='taskTitle'
               id='taskTitle'
               className='bg-ctp-surface0 text-ctp-subtext1 focus:text-ctp-text placeholder-ctp-overlay1
                 rounded-2xl w-full h-14 mt-1 p-3 text-xl'
               placeholder='Go to the grocery store...'
             />
+            <div className='mt-2 flex justify-end'>
+              <span
+                className={`${
+                  isMaxLength ? 'text-ctp-peach' : 'text-ctp-text'
+                }`}
+              >
+                {characterCount}/{maxLength}
+              </span>
+            </div>
           </div>
 
           <div>
@@ -72,6 +117,7 @@ export const NewTask = () => {
               Description:
             </label>
             <textarea
+              name='taskDescription'
               ref={taskDescription}
               id='taskDescription'
               placeholder='Bring milk, bread, candy...'
