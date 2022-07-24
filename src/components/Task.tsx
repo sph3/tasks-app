@@ -3,7 +3,7 @@ import { ArchiveBox, Timer } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 import { ITask } from '../@types';
 
-type TaskProps = Omit<ITask, 'createdAt' | 'description'>;
+type TaskProps = Omit<ITask, 'createdAt' | 'description' | 'id'>;
 
 export const Task = ({ title, completed, color, setDate }: TaskProps) => {
   let timeToTask = '';

@@ -4,6 +4,10 @@ import { ITask } from '../@types';
 import { Header } from '../components/Header';
 import { SquareButton } from '../components/SquareButton';
 import { TagColor } from '../components/TagColor';
+import { child, get, ref, set } from 'firebase/database';
+import { database as db } from '../services/firebase';
+import { useAuth } from '../hooks/use-auth';
+import { customAlphabet } from 'nanoid';
 
 export const NewTask = () => {
   const taskTitle = useRef<HTMLInputElement>(null);
@@ -11,6 +15,7 @@ export const NewTask = () => {
   const [taskTagColor, setTaskTagColor] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
   const [isMaxLength, setIsMaxLength] = useState(false);
+  const { user } = useAuth();
 
   const handleClickColor = (
     event: MouseEvent<HTMLButtonElement>,
@@ -32,16 +37,30 @@ export const NewTask = () => {
     let newTask: ITask;
 
     if (title && description) {
+      const alphabet = '0123456789ABCDEF';
+      const nanoid = customAlphabet(alphabet, 10);
+      const taskId = nanoid();
       newTask = {
+        id: taskId,
         title,
         description,
         color,
-        createdAt: new Date(),
+        createdAt: new Date().toISOString(),
         completed: false,
       };
+      submitTask(newTask);
     }
+  };
 
-    console.log(newTask! || 'No task created');
+  const submitTask = (task: ITask) => {
+    set(ref(db, `tasks/${user?.id}/${task.id}`), task);
+    get(child(ref(db), `tasks/${user?.id}/${task.id}`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+      } else {
+        console.log('deu ruim');
+      }
+    });
   };
 
   const maxLength = 50;
