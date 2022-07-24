@@ -1,9 +1,13 @@
 import { Check } from 'phosphor-react';
+import { MouseEvent } from 'react';
 
 type TagColorProps = {
   color: string;
   selectedColor: string;
-  handleClickColor: (color: string) => void;
+  handleClickColor: (
+    event: MouseEvent<HTMLButtonElement>,
+    color: string,
+  ) => void;
 };
 
 export const TagColor = ({
@@ -15,8 +19,8 @@ export const TagColor = ({
 
   return (
     <button
-      onClick={() => {
-        handleClickColor(color);
+      onClick={(event) => {
+        handleClickColor(event, color);
       }}
       className={`text-ctp-crust flex items-center justify-center ${
         selected ? 'h-9 w-11' : 'h-8 w-10'

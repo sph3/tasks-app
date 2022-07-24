@@ -1,5 +1,5 @@
 import { X } from 'phosphor-react';
-import { useRef, useState } from 'react';
+import { MouseEvent, useRef, useState } from 'react';
 import { ITask } from '../@types';
 import { Header } from '../components/Header';
 import { SquareButton } from '../components/SquareButton';
@@ -12,7 +12,11 @@ export const NewTask = () => {
   const [characterCount, setCharacterCount] = useState(0);
   const [isMaxLength, setIsMaxLength] = useState(false);
 
-  const handleClickColor = (color: string) => {
+  const handleClickColor = (
+    event: MouseEvent<HTMLButtonElement>,
+    color: string,
+  ) => {
+    event.preventDefault();
     if (taskTagColor === color) {
       setTaskTagColor('');
       return;
@@ -23,7 +27,7 @@ export const NewTask = () => {
   const createTask = () => {
     const title = taskTitle.current?.value;
     const description = taskDescription.current?.value;
-    const color = taskTagColor ?? 'bg-ctp-blue';
+    const color = taskTagColor || 'bg-ctp-blue';
 
     let newTask: ITask;
 
@@ -36,9 +40,11 @@ export const NewTask = () => {
         completed: false,
       };
     }
+
+    console.log(newTask! || 'No task created');
   };
 
-  const maxLength = 40;
+  const maxLength = 50;
 
   const handleKeyPress = () => {
     const currentCharacterCount = taskTitle.current!.value.length | 0;
